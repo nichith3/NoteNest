@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <h2>Signup</h2>
+    <input type="text" id="signup-username" placeholder="Username">
+    <input type="password" id="signup-password" placeholder="Password">
+    <button onclick="signup()">Signup</button>
+    <p>Already have an account? <a href="login.html">Login</a></p>
+
+    <script>
+        function signup() {
+            fetch("/signup", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    username: document.getElementById("signup-username").value,
+                    password: document.getElementById("signup-password").value
+                })
+            }).then(res => res.json()).then(data => {
+                alert(data.message);
+                if (data.message === "User registered!") {
+                    window.location.href = "login.html";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
