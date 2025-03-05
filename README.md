@@ -3,6 +3,8 @@
 NoteNest is a simple note-taking application built using **Node.js**, **Express.js**, and **MongoDB**.  
 It allows users to **sign up, log in, create, edit, delete, and view notes** securely.
 
+![App Demo](public/screenshots/demo.gif)
+
 ---
 
 ## 📌 Tech Stack
